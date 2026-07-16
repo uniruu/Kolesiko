@@ -157,7 +157,7 @@ function spinWheel() {
   const duration = 4000 + Math.floor(Math.random() * 2001);
 
   // Центр сектора должен оказаться под указателем сверху (0 градусов).
-  const winningAngle = 360 - winnerIndex * segment;
+  const winningAngle = 0;
   const extraTurns = 6 * 360 + Math.floor(Math.random() * 3) * 360;
   const finalRotation = currentRotation + extraTurns + ((winningAngle - currentRotation) % 360 + 360) % 360;
   currentRotation = finalRotation;
