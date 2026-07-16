@@ -3,45 +3,86 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Нежный генератор комплиментов для хорошего настроения."
-    />
-    <title>Генератор комплиментов</title>
+    <meta name="description" content="Интерактивное колесо удачи с призами." />
+    <title>Колесо удачи</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- Декоративные сердечки создаются в script.js. -->
-    <div class="particles" aria-hidden="true"></div>
+    <!-- Мелкие декоративные частицы добавляются JavaScript-ом. -->
+    <div class="background-particles" aria-hidden="true"></div>
+    <div id="confetti" aria-hidden="true"></div>
 
-    <main class="page-content">
-      <section class="compliment-card" aria-labelledby="page-title">
-        <div class="card-shine" aria-hidden="true"></div>
-        <p class="eyebrow">для твоего настроения <span>💖</span></p>
-        <h1 id="page-title">Генератор<br />комплиментов</h1>
-        <p class="intro">
-          Иногда достаточно пары тёплых слов, чтобы день стал немного светлее.
-        </p>
-
-        <!-- В этом блоке JavaScript будет показывать новый комплимент. -->
-        <div class="compliment-box" aria-live="polite">
-          <span class="compliment-icon" aria-hidden="true">🌸</span>
-          <p id="compliment-text">Ты заслуживаешь самых добрых слов уже сегодня.</p>
+    <main class="app-shell">
+      <!-- Панель управления списком призов. -->
+      <aside class="settings-panel glass-card">
+        <div class="panel-heading">
+          <span class="heading-icon">✨</span>
+          <div>
+            <p class="kicker">настройка игры</p>
+            <h2>Ваши варианты</h2>
+          </div>
         </div>
 
-        <button id="compliment-button" type="button">
-          <span>Получить комплимент</span>
-          <span class="button-sparkle" aria-hidden="true">💫</span>
+        <form id="option-form" class="option-form">
+          <label for="new-option">Добавить вариант</label>
+          <div class="input-row">
+            <input id="new-option" type="text" maxlength="28" placeholder="Например, 🌴 Отдых" />
+            <button class="add-button" type="submit" aria-label="Добавить вариант">+</button>
+          </div>
+        </form>
+
+        <!-- Список формируется в script.js. -->
+        <ul id="options-list" class="options-list" aria-label="Список вариантов"></ul>
+
+        <div class="panel-actions">
+          <button id="clear-options" class="text-button danger" type="button">Очистить</button>
+          <button id="restore-options" class="text-button" type="button">По умолчанию</button>
+        </div>
+      </aside>
+
+      <section class="game-area" aria-labelledby="page-title">
+        <header>
+          <p class="kicker">пусть повезёт именно вам</p>
+          <h1 id="page-title">Колесо <span>удачи</span></h1>
+          <p class="subtitle">Крутите колесо и ловите свой счастливый приз!</p>
+        </header>
+
+        <div class="wheel-stage">
+          <div class="pointer" aria-hidden="true"><span></span></div>
+          <!-- Сектора и подписи колеса создаются JavaScript-ом. -->
+          <div id="wheel" class="wheel" role="img" aria-label="Колесо с призами">
+            <div id="wheel-labels" class="wheel-labels"></div>
+            <div class="wheel-center" aria-hidden="true">✦</div>
+          </div>
+        </div>
+
+        <button id="spin-button" class="spin-button" type="button">
+          <span class="spin-icon">↻</span>
+          Крутить
         </button>
-        <p class="hint">Нажми — и пусть случится маленькое волшебство ✨</p>
+        <p id="status" class="status" aria-live="polite">Выберите удачный момент ✨</p>
       </section>
     </main>
+
+    <!-- Окно с результатом скрыто до окончания вращения. -->
+    <div id="result-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="result-title" hidden>
+      <div class="modal-backdrop" data-close-modal></div>
+      <section class="result-card glass-card">
+        <button class="close-modal" type="button" data-close-modal aria-label="Закрыть окно">×</button>
+        <div class="result-emoji">🎉</div>
+        <p class="kicker">вот это удача!</p>
+        <h2 id="result-title">Поздравляем!</h2>
+        <p>Вам выпало:</p>
+        <strong id="result-prize">Подарок</strong>
+        <button class="again-button" type="button" data-close-modal>Ещё раз</button>
+      </section>
+    </div>
 
     <script src="script.js"></script>
   </body>
