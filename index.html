@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Нежный генератор комплиментов для хорошего настроения."
+    />
+    <title>Генератор комплиментов</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Декоративные сердечки создаются в script.js. -->
+    <div class="particles" aria-hidden="true"></div>
+
+    <main class="page-content">
+      <section class="compliment-card" aria-labelledby="page-title">
+        <div class="card-shine" aria-hidden="true"></div>
+        <p class="eyebrow">для твоего настроения <span>💖</span></p>
+        <h1 id="page-title">Генератор<br />комплиментов</h1>
+        <p class="intro">
+          Иногда достаточно пары тёплых слов, чтобы день стал немного светлее.
+        </p>
+
+        <!-- В этом блоке JavaScript будет показывать новый комплимент. -->
+        <div class="compliment-box" aria-live="polite">
+          <span class="compliment-icon" aria-hidden="true">🌸</span>
+          <p id="compliment-text">Ты заслуживаешь самых добрых слов уже сегодня.</p>
+        </div>
+
+        <button id="compliment-button" type="button">
+          <span>Получить комплимент</span>
+          <span class="button-sparkle" aria-hidden="true">💫</span>
+        </button>
+        <p class="hint">Нажми — и пусть случится маленькое волшебство ✨</p>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

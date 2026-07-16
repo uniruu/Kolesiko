@@ -1,0 +1,253 @@
+/* Базовые настройки страницы */
+:root {
+  --text: #4f315d;
+  --muted-text: #765e7c;
+  --accent-start: #e975a7;
+  --accent-end: #9a71db;
+  --white: rgba(255, 255, 255, 0.72);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  color: var(--text);
+  font-family: "Manrope", sans-serif;
+  background:
+    radial-gradient(circle at 12% 15%, rgba(255, 255, 255, 0.85) 0 4%, transparent 24%),
+    radial-gradient(circle at 88% 84%, rgba(255, 233, 249, 0.95) 0 3%, transparent 28%),
+    linear-gradient(135deg, #f8c4dc 0%, #e6c5ef 47%, #c6d2fa 100%);
+}
+
+/* Мягкие размытые пятна делают фон объёмнее. */
+body::before,
+body::after {
+  position: fixed;
+  z-index: -1;
+  width: 34rem;
+  height: 34rem;
+  border-radius: 50%;
+  content: "";
+  filter: blur(18px);
+  opacity: 0.55;
+  animation: drift 12s ease-in-out infinite alternate;
+}
+
+body::before {
+  top: -16rem;
+  left: -10rem;
+  background: #ff8fbd;
+}
+
+body::after {
+  right: -12rem;
+  bottom: -17rem;
+  background: #9f8cf2;
+  animation-delay: -5s;
+}
+
+.page-content {
+  display: grid;
+  min-height: 100vh;
+  padding: 28px;
+  place-items: center;
+}
+
+/* Полупрозрачная «стеклянная» карточка. */
+.compliment-card {
+  position: relative;
+  width: min(100%, 610px);
+  padding: clamp(34px, 6vw, 58px);
+  overflow: hidden;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.38);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 32px;
+  box-shadow: 0 22px 55px rgba(106, 67, 126, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.58);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  animation: card-entrance 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.card-shine {
+  position: absolute;
+  top: -80px;
+  left: -70px;
+  width: 220px;
+  height: 180px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  filter: blur(12px);
+  pointer-events: none;
+}
+
+.eyebrow {
+  margin: 0 0 11px;
+  color: #8b5b84;
+  font-size: 0.73rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.eyebrow span {
+  display: inline-block;
+  margin-left: 3px;
+  animation: heartbeat 1.7s ease-in-out infinite;
+}
+
+h1 {
+  margin: 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(2.25rem, 6vw, 3.7rem);
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+}
+
+.intro {
+  max-width: 440px;
+  margin: 20px auto 27px;
+  color: var(--muted-text);
+  font-size: clamp(0.92rem, 2vw, 1rem);
+  line-height: 1.7;
+}
+
+.compliment-box {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-height: 105px;
+  margin-bottom: 25px;
+  padding: 19px 21px;
+  text-align: left;
+  background: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  border-radius: 20px;
+  box-shadow: 0 10px 26px rgba(126, 77, 139, 0.08);
+}
+
+.compliment-icon {
+  flex: 0 0 auto;
+  font-size: 1.55rem;
+}
+
+#compliment-text {
+  margin: 0;
+  font-size: clamp(0.94rem, 2vw, 1.05rem);
+  font-weight: 600;
+  line-height: 1.55;
+}
+
+/* Этот класс добавляет JavaScript при смене комплимента. */
+.compliment-box.is-animated {
+  animation: reveal-compliment 0.48s cubic-bezier(0.2, 0.8, 0.25, 1) both;
+}
+
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: min(100%, 330px);
+  min-height: 57px;
+  padding: 15px 25px;
+  color: white;
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  background: linear-gradient(110deg, var(--accent-start), var(--accent-end));
+  border: 0;
+  border-radius: 999px;
+  box-shadow: 0 12px 22px rgba(170, 82, 154, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+button:hover {
+  filter: brightness(1.06);
+  box-shadow: 0 16px 28px rgba(170, 82, 154, 0.38);
+  transform: translateY(-3px) scale(1.02);
+}
+
+button:active {
+  box-shadow: 0 6px 13px rgba(170, 82, 154, 0.25);
+  transform: translateY(1px) scale(0.98);
+}
+
+button:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.9);
+  outline-offset: 4px;
+}
+
+.button-sparkle {
+  font-size: 1.1rem;
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+.hint {
+  margin: 18px 0 0;
+  color: rgba(79, 49, 93, 0.67);
+  font-size: 0.77rem;
+}
+
+/* Лёгкие плавающие элементы на фоне страницы. */
+.particle {
+  position: fixed;
+  z-index: -1;
+  bottom: -45px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: var(--size);
+  pointer-events: none;
+  animation: float-up var(--duration) linear infinite;
+  animation-delay: var(--delay);
+}
+
+@keyframes card-entrance {
+  from { opacity: 0; transform: translateY(20px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes reveal-compliment {
+  0% { opacity: 0; transform: scale(0.91); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes float-up {
+  from { opacity: 0; transform: translateY(0) rotate(0deg); }
+  12% { opacity: 0.85; }
+  88% { opacity: 0.85; }
+  to { opacity: 0; transform: translateY(-115vh) rotate(38deg); }
+}
+
+@keyframes drift {
+  to { transform: translate(35px, 25px) scale(1.08); }
+}
+
+@keyframes heartbeat {
+  50% { transform: scale(1.22); }
+}
+
+@keyframes sparkle {
+  50% { transform: rotate(20deg) scale(1.18); }
+}
+
+/* Учитываем настройку системы «уменьшить движение». */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-content { padding: 17px; }
+  .compliment-card { border-radius: 25px; }
+  .compliment-box { min-height: 112px; padding: 17px; }
+}
