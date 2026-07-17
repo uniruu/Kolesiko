@@ -1,89 +1,90 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Интерактивное колесо удачи с призами." />
-    <title>Колесо удачи</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <!-- Мелкие декоративные частицы добавляются JavaScript-ом. -->
-    <div class="background-particles" aria-hidden="true"></div>
-    <div id="confetti" aria-hidden="true"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="LUMA Coffee — место для кофе, встреч и вдохновения." />
+  <title>LUMA Coffee — Crafted with Passion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="preloader" aria-label="Загрузка">
+    <div class="loader-cup"><span></span></div>
+    <p>LUMA</p>
+  </div>
 
-    <main class="app-shell">
-      <!-- Панель управления списком призов. -->
-      <aside class="settings-panel glass-card">
-        <div class="panel-heading">
-          <span class="heading-icon">✨</span>
-          <div>
-            <p class="kicker">настройка игры</p>
-            <h2>Ваши варианты</h2>
-          </div>
+  <header class="header" id="top">
+    <a href="#home" class="logo" aria-label="LUMA Coffee">LUMA<span>•</span></a>
+    <button class="menu-toggle" aria-label="Открыть меню" aria-expanded="false"><i></i><i></i></button>
+    <nav class="nav" aria-label="Основная навигация">
+      <a href="#about">О нас</a><a href="#menu">Меню</a><a href="#desserts">Десерты</a><a href="#gallery">Галерея</a><a href="#contacts">Контакты</a>
+    </nav>
+    <a href="#contacts" class="header-book">Забронировать <span>↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <p class="eyebrow hero-reveal">Coffee · Brunch · Moments</p>
+        <h1 class="hero-reveal">Crafted <em>with</em><br />Passion.</h1>
+        <p class="hero-copy hero-reveal">Свежая обжарка, авторские напитки<br />и уютная атмосфера.</p>
+        <div class="hero-actions hero-reveal">
+          <a href="#menu" class="button button-light">Посмотреть меню <b>↓</b></a>
+          <a href="#contacts" class="text-link">Забронировать столик <b>↗</b></a>
         </div>
+      </div>
+      <a class="scroll-note" href="#about"><span></span> Листайте вниз</a>
+      <p class="hero-side">EST. 2024 · CHIȘINĂU</p>
+    </section>
 
-        <form id="option-form" class="option-form">
-          <label for="new-option">Добавить вариант</label>
-          <div class="input-row">
-            <input id="new-option" type="text" maxlength="28" placeholder="Например, 🌴 Отдых" />
-            <button class="add-button" type="submit" aria-label="Добавить вариант">+</button>
-          </div>
-        </form>
+    <section class="about section" id="about">
+      <div class="section-intro reveal">
+        <p class="eyebrow">Наша философия</p>
+        <h2>Кофе, в который<br />влюбляются <em>медленно.</em></h2>
+      </div>
+      <div class="about-story reveal">
+        <p>Мы верим, что чашка кофе — это маленький ежедневный ритуал. В LUMA мы бережно выбираем зерно, создаём напитки с характером и оставляем место для тёплых разговоров.</p>
+        <a href="#contacts" class="text-link dark-link">Узнать о нас больше <b>↗</b></a>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card reveal"><span class="feature-number">01</span><div class="feature-icon">✦</div><h3>Свежая<br />обжарка</h3><p>Зёрна от обжарщиков, которых мы знаем лично.</p></article>
+        <article class="feature-card reveal"><span class="feature-number">02</span><div class="feature-icon">⌁</div><h3>Натуральные<br />ингредиенты</h3><p>Настоящее молоко, фрукты и честный вкус.</p></article>
+        <article class="feature-card reveal"><span class="feature-number">03</span><div class="feature-icon">◒</div><h3>Уютная<br />атмосфера</h3><p>Свет, музыка и детали, к которым хочется возвращаться.</p></article>
+      </div>
+    </section>
 
-        <!-- Список формируется в script.js. -->
-        <ul id="options-list" class="options-list" aria-label="Список вариантов"></ul>
+    <section class="menu section" id="menu">
+      <div class="section-heading reveal"><div><p class="eyebrow">Популярное</p><h2>Ваш новый<br /><em>любимый</em> кофе.</h2></div><a href="#contacts" class="round-arrow" aria-label="Открыть полное меню">↗</a></div>
+      <div class="product-grid">
+        <article class="product-card large-card reveal"><img src="https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=1000&q=85" alt="Cappuccino в чашке" /><div class="product-info"><div><h3>Cappuccino</h3><p>Двойной эспрессо, молоко, бархатная пена</p></div><b>55 MDL</b></div></article>
+        <article class="product-card reveal"><img src="https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?auto=format&fit=crop&w=800&q=85" alt="Latte" /><div class="product-info"><div><h3>Latte</h3><p>Нежный и сливочный</p></div><b>60 MDL</b></div></article>
+        <article class="product-card reveal"><img src="https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?auto=format&fit=crop&w=800&q=85" alt="Espresso" /><div class="product-info"><div><h3>Espresso</h3><p>Яркий и насыщенный</p></div><b>40 MDL</b></div></article>
+        <article class="product-card reveal"><img src="https://images.unsplash.com/photo-1521302080334-4bebac2763a6?auto=format&fit=crop&w=800&q=85" alt="Flat White" /><div class="product-info"><div><h3>Flat White</h3><p>Крепкий, с микропеной</p></div><b>58 MDL</b></div></article>
+        <article class="product-card reveal"><img src="https://images.unsplash.com/photo-1515823662972-da6a2e4d3002?auto=format&fit=crop&w=800&q=85" alt="Matcha Latte" /><div class="product-info"><div><h3>Matcha Latte</h3><p>Японская матча и молоко</p></div><b>65 MDL</b></div></article>
+        <article class="product-card reveal"><img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=800&q=85" alt="Cold Brew" /><div class="product-info"><div><h3>Cold Brew</h3><p>18 часов холодного заваривания</p></div><b>62 MDL</b></div></article>
+      </div>
+    </section>
 
-        <div class="panel-actions">
-          <button id="clear-options" class="text-button danger" type="button">Очистить</button>
-          <button id="restore-options" class="text-button" type="button">По умолчанию</button>
-        </div>
-      </aside>
+    <section class="desserts section" id="desserts"><div class="dessert-top reveal"><p class="eyebrow">К кофе</p><h2>Немного<br /><em>сладкого.</em></h2><p>Готовим десерты небольшими партиями — чтобы каждый был как первый.</p></div><div class="dessert-grid">
+      <article class="dessert-card reveal"><img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=800&q=85" alt="Cheesecake" /><div><span>01</span><h3>Cheesecake</h3></div></article>
+      <article class="dessert-card reveal"><img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=800&q=85" alt="Croissant" /><div><span>02</span><h3>Croissant</h3></div></article>
+      <article class="dessert-card reveal"><img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=800&q=85" alt="Brownie" /><div><span>03</span><h3>Brownie</h3></div></article>
+      <article class="dessert-card reveal"><img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=800&q=85" alt="Tiramisu" /><div><span>04</span><h3>Tiramisu</h3></div></article>
+    </div></section>
 
-      <section class="game-area" aria-labelledby="page-title">
-        <header>
-          <p class="kicker">пусть повезёт именно вам</p>
-          <h1 id="page-title">Колесо <span>удачи</span></h1>
-          <p class="subtitle">Крутите колесо и ловите свой счастливый приз!</p>
-        </header>
+    <section class="reasons"><div class="reasons-image"></div><div class="reasons-content"><p class="eyebrow">Почему LUMA</p><h2>Больше, чем<br />просто <em>кофейня.</em></h2><div class="reason-list"><div class="reveal"><span>01</span><h3>Бесплатный Wi-Fi</h3><i>↗</i></div><div class="reveal"><span>02</span><h3>Свежие зёрна каждый день</h3><i>↗</i></div><div class="reveal"><span>03</span><h3>Уютный интерьер</h3><i>↗</i></div><div class="reveal"><span>04</span><h3>Быстрое обслуживание</h3><i>↗</i></div></div></div></section>
 
-        <div class="wheel-stage">
-          <div class="pointer" aria-hidden="true"><span></span></div>
-          <!-- Сектора и подписи колеса создаются JavaScript-ом. -->
-          <div id="wheel" class="wheel" role="img" aria-label="Колесо с призами">
-            <div id="wheel-labels" class="wheel-labels"></div>
-            <div class="wheel-center" aria-hidden="true">✦</div>
-          </div>
-        </div>
+    <section class="gallery section" id="gallery"><div class="section-heading reveal"><div><p class="eyebrow">Наше пространство</p><h2>Здесь хочется<br /><em>остаться.</em></h2></div><p class="gallery-caption">Ваше место для вдохновения,<br />встреч и тишины.</p></div><div class="gallery-grid"><img class="reveal" src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1000&q=85" alt="Интерьер кофейни" /><img class="reveal" src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=900&q=85" alt="Столик в кафе" /><img class="reveal" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=85" alt="Приготовление кофе" /><img class="reveal" src="https://images.unsplash.com/photo-1461988320302-91bde64fc8e4?auto=format&fit=crop&w=900&q=85" alt="Бариста готовит напиток" /><img class="reveal" src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=1000&q=85" alt="Люди в кофейне" /></div></section>
 
-        <button id="spin-button" class="spin-button" type="button">
-          <span class="spin-icon">↻</span>
-          Крутить
-        </button>
-        <p id="status" class="status" aria-live="polite">Выберите удачный момент ✨</p>
-      </section>
-    </main>
+    <section class="testimonials section"><p class="eyebrow reveal">Гости о нас</p><div class="testimonial-wrap reveal"><span class="quote">“</span><div class="testimonial active"><p>У LUMA удивительная способность превращать обычное утро в маленький праздник. Идеальный flat white и очень тёплое пространство.</p><div><b>Анна В.</b><span>Постоянная гостья</span></div></div><div class="testimonial"><p>Лучшее место для встреч в городе. Внимательная команда, превосходный кофе и тот самый чизкейк, ради которого хочется возвращаться.</p><div><b>Марк С.</b><span>Гость LUMA</span></div></div><div class="testimonial"><p>Здесь хочется работать, читать и никуда не спешить. Лаконичный интерьер, приятная музыка и безупречный cold brew.</p><div><b>Дарья К.</b><span>Гостья LUMA</span></div></div><div class="slider-controls"><button class="slider-prev" aria-label="Предыдущий отзыв">←</button><span><b>01</b> / 03</span><button class="slider-next" aria-label="Следующий отзыв">→</button></div></div></section>
 
-    <!-- Окно с результатом скрыто до окончания вращения. -->
-    <div id="result-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="result-title" hidden>
-      <div class="modal-backdrop" data-close-modal></div>
-      <section class="result-card glass-card">
-        <button class="close-modal" type="button" data-close-modal aria-label="Закрыть окно">×</button>
-        <div class="result-emoji">🎉</div>
-        <p class="kicker">вот это удача!</p>
-        <h2 id="result-title">Поздравляем!</h2>
-        <p>Вам выпало:</p>
-        <strong id="result-prize">Подарок</strong>
-        <button class="again-button" type="button" data-close-modal>Ещё раз</button>
-      </section>
-    </div>
-
-    <script src="script.js"></script>
-  </body>
+    <section class="contact" id="contacts"><div class="contact-info reveal"><p class="eyebrow">Заходите в гости</p><h2>Найдите свой<br />свет в <em>LUMA.</em></h2><div class="contact-details"><p><span>Адрес</span>ул. Пушкина, 32<br />Chișinău, Moldova</p><p><span>Контакты</span><a href="tel:+37360000000">+373 60 000 000</a><br /><a href="mailto:hello@lumacoffee.md">hello@lumacoffee.md</a></p><p><span>Часы работы</span>Пн–Пт: 08:00 – 22:00<br />Сб–Вс: 09:00 – 23:00</p></div></div><div class="map reveal"><div class="map-pin">LUMA<span>•</span></div><p>ул. Пушкина, 32</p><a href="https://maps.google.com" target="_blank" rel="noopener">Открыть карту ↗</a></div></section>
+  </main>
+  <footer><a href="#home" class="logo">LUMA<span>•</span></a><p>© 2024 LUMA Coffee. Made for slow mornings.</p><div class="socials"><a href="#">Instagram</a><a href="#">Facebook</a><a href="#">TikTok</a></div></footer>
+  <a class="to-top" href="#top" aria-label="Наверх">↑</a>
+  <script src="script.js"></script>
+</body>
 </html>
